@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const todoRoutes = require('./routes/todos')
 
 
-var app = express();
+let app = express();
 const hbs = exphbs.create({
   defaultLayout: 'main',
   extname: 'hbs'
