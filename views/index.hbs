@@ -1,0 +1,36 @@
+<h2>To do page</h2>
+
+{{#if todos.length}}
+<ul>
+  {{#each todos}}
+    <li class="todo">
+      <form action="/complete" method="post">
+        <label>
+          {{#if completed}}
+            <input type="checkbox" checked name="completed">
+            <span class="completed">{{title}}</span>
+          {{else}}
+            <input type="checkbox" name="completed">
+            <span>{{title}}</span>
+          {{/if}}
+          <input type="hidden" name="id" value="{{_id}}">
+          <div class="">
+            <button class="btn" type="submit" name="save">save</button>
+          </div>
+        </label>
+      </form>
+
+      <form action="/delete" method="post">
+        <label>
+          <div></div>
+          <input type="hidden" name="id" value="{{_id}}">
+          <button class="btn red" type="submit" name="delete">delete</button>
+        </label>
+      </form>
+
+    </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>ops! no todo yet...</p>
+{{/if}}
